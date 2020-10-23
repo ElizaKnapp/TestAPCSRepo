@@ -1,24 +1,9 @@
 public class Demo {
   public static void main(String[] args) {
-/* FIX AFTER
+
     int n = 5;
     if (args.length != 0) n = Integer.parseInt(args[0]);
     printLoop(n);
-*/
-  int[] arr1 = {5};
-  int[] arr2 = {6, 7};
-  int[] arr3 = {5, 7, 8};
-  int[] arr4 = {5, 2, 87, 3};
-  int[] arr5 = {1, 2, 8, 3, 68};
-
-  int[][] bigArr = new int[5][];
-  bigArr[0] = arr1;
-  bigArr[1] = arr2;
-  bigArr[2] = arr3;
-  bigArr[3] = arr4;
-  bigArr[4] = arr5;
-
-  System.out.println(arrayDeepToString(bigArr).replace("}, ","},\n "));
 
   }
 
@@ -47,6 +32,29 @@ public class Demo {
     }
     ans += arrToString(arr[arr.length - 1]) + "}";
     return ans;
+  }
+
+  public static int[][] create2DArray(int rows, int cols, int maxValue) {
+    int[][] arr = new int[rows][cols];
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr[i].length; j++) {
+        arr[i][j] = (int)(Math.random() * (maxValue + 1));
+      }
+    }
+    return arr;
+  }
+
+  public static int[][] create2DArrayRandomized(int rows, int cols, int maxValue) {
+    int[][] arr = new int[rows][];
+    for (int i = 0; i < rows; i++) {
+      arr[i] = new int[(int)(Math.random() * (cols + 1))];
+    }
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr[i].length; j++) {
+        arr[i][j] = (int)(Math.random() * (maxValue + 1));
+      }
+    }
+    return arr;
   }
 
 }
